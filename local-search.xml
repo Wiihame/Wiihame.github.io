@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2019/12/29/hello-world/"/>
+    <url>/2019/12/29/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>让Monaco editor补全python代码</title>
+    <link href="/2019/12/26/monaco-python-lsp/"/>
+    <url>/2019/12/26/monaco-python-lsp/</url>
+    
+    <content type="html"><![CDATA[<h2 id="web-端的-python-编辑器"><a href="#web-端的-python-编辑器" class="headerlink" title="web 端的 python 编辑器"></a>web 端的 python 编辑器</h2><h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><p>今年年初的时候接到一个关于量化交易的项目，需要为页面提供支持 python 自动补全、高亮等功能的代码编辑器。目前能找到的编辑器相关方案不算多，在调研阶段我找到的有以下几个：</p><ul><li><p><a href="https://ace.c9.io/" target="_blank" rel="noopener">Ace editor</a></p></li><li><p><a href="https://microsoft.github.io/monaco-editor/index.html" target="_blank" rel="noopener">Monaco editor</a></p></li></ul><p>这两个编辑器的特点基本也没啥，ace 诞生时间相对较长（老前辈），而 monaco 作为 vscode 的前身，在 UI 风格上跟 vscode 基本保持一致。从需求的方面来说，ace 其实够用，如果你用的是 react 开发项目，还有 react-ace 将 ace editor 封装成方便易用的 react 组件，ace 本身支持的高亮/补全的语言也相当全面，稍加配置就能满足我的项目需求，而反观 monaco，内置多个语言的高亮，但是补全呢？<strong>只有 html、css 以及 typescript</strong>。</p><p>选用 ace，对于我的项目来说，这个事情就到此为止了，继续埋头搬砖，今天还是加班。</p><p>但是这样就不酷了，我想让 Monaco 也能做代码高亮，像 vscode 一样写 python。</p><h4 id="开搞"><a href="#开搞" class="headerlink" title="开搞"></a>开搞</h4><p>经过一番搜索，我大概搞懂了微软对 Monaco 的设计理念：编辑器的语言支持与编辑器解耦。这个做法在其他的文本（代码）编辑器其实也在逐步进行支持和推广。这就是<a href="https://microsoft.github.io/language-server-protocol/" target="_blank" rel="noopener">LSP</a>，Language Server Protocol，一种在多个浏览器里统一语言服务的方式。为何设计 LSP，在此不做赘述，我们只需要知道，解决 python 补全的切入点，就是实现一个 LSP，提供给客户端的 Monaco editor 使用。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>editor language-server-protocol</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
